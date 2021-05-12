@@ -4,9 +4,9 @@ import java.awt.geom.Rectangle2D;
 
 /**
  * This class is a subclass of FractalGenerator.  It is used to compute the
- * Tricorn fractal.
+ * Mandelbrot fractal.
  */
-public class Tricorn extends FractalGenerator
+public class Mandelbrot extends FractalGenerator
 {
     /**
      * A constant for the number of maximum iterations.
@@ -24,13 +24,13 @@ public class Tricorn extends FractalGenerator
     public void getInitialRange(Rectangle2D.Double range)
     {
         range.x = -2;
-        range.y = -2;
-        range.width = 4;
-        range.height = 4;
+        range.y = -1.5;
+        range.width = 3;
+        range.height = 3;
     }
 
     /**
-     * This method implements the iterative function for the Tricorn fractal.
+     * This method implements the iterative function for the Mandelbrot fractal.
      * It takes two doubles for the real and imaginary parts of the complex
      * plane and returns the number of iterations for the corresponding
      * coordinate.
@@ -54,7 +54,7 @@ public class Tricorn extends FractalGenerator
                 zreal * zreal + zimaginary * zimaginary < 4)
         {
             double zrealUpdated = zreal * zreal - zimaginary * zimaginary + x;
-            double zimaginaryUpdated = -2 * zreal * zimaginary + y;
+            double zimaginaryUpdated = 2 * zreal * zimaginary + y;
             zreal = zrealUpdated;
             zimaginary = zimaginaryUpdated;
             iteration += 1;
@@ -76,6 +76,6 @@ public class Tricorn extends FractalGenerator
      * Returns the name of fractral
      */
     public String toString() {
-        return "Tricorn";
+        return "Mandelbrot";
     }
 }
